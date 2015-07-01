@@ -22,6 +22,7 @@ var RouteHandler = Router.RouteHandler
 
 import {UserMixin} from '../mixins/userMixin';
 
+
 var Search = React.createClass({
     mixins : [UserMixin],
     getInitialState: function (){
@@ -48,18 +49,38 @@ var Search = React.createClass({
           return (<option> {item} </option>);
         })
       );
+      var providerListOptions = (
+
+          self.state.providers.map(function(item){
+              //<li><a href="#" class="small" data-value="option6" tabIndex="-1"><input type="checkbox"/>&nbsp;Option 6</a></li>
+              return (<li> <a href="#" class="small"><input type="checkbox"/>{item} </a></li>);
+          })
+      )
+        
 
         var selectionButtons = (
             <div>
             <button type="button" className="btn btn_dicoogle" onClick={this.renderFilter} data-trigger="advance-search" id="btn-advance">Advanced</button>
                 <div className="btn-group">
+
+                    <ul className="dropdown-menu">
+                    
+                    {providerListOptions}
+                    
+                    </ul>
                     <select id="providersList" className="btn btn_dicoogle form-control">
                       {providersList}
 
                     </select>
+
                 </div>
-                </div>
-            );
+                <div>
+                    <ul bsClass="dropdown-menu">
+                    {providerListOptions}
+                    </ul>
+                 </div>
+            </div>
+        );
 
         var simpleSearchInstance = (
             <div className="row space_up" id="main-search">
