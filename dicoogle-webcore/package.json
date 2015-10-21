@@ -2,25 +2,22 @@
   "name": "dicoogle-webcore",
   "version": "0.9.0",
   "author": "Universidade de Aveiro, DETI/IEETA, Bioinformatics Group (http://bioinformatics.ua.pt/)",
+  "maintainers": [
+    "Eduardo Pinho <eduardopinho@ua.pt>"
+  ],
   "contributors": [
     "Eduardo Pinho <eduardopinho@ua.pt>"
   ],
   "description": "Dicoogle Web Core for UI plugins",
   "files": [
-    "README.md",
-    "dicoogle-webcore.js",
-    "request.js"
+    "dist/"
   ],
-  "main": "dicoogle-webcore.js",
+  "main": "dist/dicoogle-webcore.js",
   "keywords": [
     "dicoogle"
   ],
-  "browserify": {
-    "transform": [
-      "babelify"
-    ]
-  },
   "scripts": {
+    "prepublish": "babel src -d dist",
     "check": "grunt test"
   },
   "license": "GPL-3.0+",
@@ -29,6 +26,6 @@
     "grunt-eslint": "^17.2.0"
   },
   "devDependencies": {
-    "babelify": "^6.3.0"
+    "babel": "^5.8.23"
   }
 }
